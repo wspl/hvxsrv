@@ -10,6 +10,7 @@ buildscript {
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE")
+        classpath 'org.springframework:springloaded:1.2.6.RELEASE'
     }
 }
 
@@ -28,10 +29,26 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile("org.springframework.boot:spring-boot-starter-web")
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'com.jayway.jsonpath:json-path:2.2.0'
+    compile 'com.squareup.okhttp3:okhttp:3.4.2'
+    compile 'com.machinepublishers:jbrowserdriver:0.17.1'
+    compile 'org.jsoup:jsoup:1.10.1'
+    compile 'redis.clients:jedis:2.9.0'
+    compile 'com.fasterxml.jackson.module:jackson-module-kotlin:2.8.4'
+
+
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
+idea {
+    module {
+        inheritOutputDirs = false
+        outputDir = file("$buildDir/classes/main/")
+    }
+}
+
 springBoot {
-    mainClass = 'hello.ApplicationKt'
+    mainClass = 'hrxsrv.ApplicationKt'
 }
